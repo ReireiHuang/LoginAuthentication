@@ -1,0 +1,24 @@
+﻿@model TestProject.Models.Account.UserViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+
+</head>
+</html>
+
+<body>
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { name = "myForm", autocomplete = "off" }))
+    {
+        <div style="display:inline">@Html.TextBoxFor(m => m.Account) </div>
+        <div style="display:inline">@Html.TextBoxFor(m => m.Password) </div>
+        <input type="hidden" name="rtnurl" value="@TempData["ReturnUrl"]" />
+        <div>
+            <button type="submit">登入</button>
+        </div>
+    }
+</body>
